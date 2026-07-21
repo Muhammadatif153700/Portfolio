@@ -3,78 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Atif - Software Engineer Portfolio</title>
+    <title>Muhammad Atif — Software Engineer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Header & Navigation -->
+    <!-- Minimal Header -->
     <header class="header">
-        <div class="logo">Muhammad Atif</div>
+        <div class="logo">
+            <svg class="logo-icon" width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13H5.5L12 6.5z"/>
+            </svg>
+        </div>
         <button class="menu-toggle" aria-label="Toggle Navigation">☰</button>
         <nav class="nav-container">
-            <a href="#hero" class="nav-link active">Home</a>
-            <a href="#skills" class="nav-link">Skills</a>
-            <a href="#about-contact-section" class="nav-link">About & Contact</a>
+            <a href="#hero" class="nav-link active">About Me</a>
+            <a href="#skills" class="nav-link">Portfolio</a>
+            <a href="#about-contact-section" class="nav-link">Services</a>
+            <a href="#about-contact-section" class="nav-link">Contact</a>
         </nav>
+        <a href="#about-contact-section" class="book-call-btn">Book A Call ↗</a>
     </header>
 
-    <!-- Hero Section with Developer Image -->
+    <!-- Side Vertical Metadata Lines -->
+    <div class="vertical-meta meta-left">Software Engineer</div>
+    <div class="vertical-meta meta-right">2026</div>
+
+    <!-- Hero Section -->
     <section id="hero" class="hero-section">
         <div class="hero-container">
+            
+            <!-- Left Hero Content -->
             <div class="hero-content scroll-reveal">
-                <h1>Hi, I'm <span class="highlight">Muhammad Atif</span></h1>
-                <h2>Software Engineer & Full Stack Developer</h2>
-                <p>Building clean frontend interfaces, robust backend APIs, and scalable mobile & database solutions.</p>
-                <div class="hero-buttons">
-                    <a href="#about-contact-section" class="btn btn-primary">Get in Touch</a>
-                    <a href="#skills" class="btn btn-secondary">Explore Skills</a>
+                
+                <!-- Quick Stats -->
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <span class="stat-number">+200</span>
+                        <span class="stat-label">Project completed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">+50</span>
+                        <span class="stat-label">Startup raised</span>
+                    </div>
+                </div>
+
+                <!-- Massive Editorial Headline -->
+                <h1 class="giant-hello">Hello</h1>
+                <p class="hero-subtitle">— It's Muhammad Atif, a full stack developer & design engineer</p>
+                
+                <!-- Scroll Indicator -->
+                <div class="scroll-down">
+                    <a href="#skills">Scroll down ↓</a>
                 </div>
             </div>
-            
+
+            <!-- Right Side: Animated Floating Console Card -->
             <div class="hero-image-container scroll-reveal">
-                <!-- Developer & Code High-Quality Image -->
-                <img 
-                    src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" 
-                    alt="Software Engineer Coding Setup" 
-                    class="profile-img"
-                >
+                <div class="interactive-card float-animation">
+                    
+                    <!-- Card Top Header -->
+                    <div class="card-header">
+                        <div class="window-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="card-tabs">
+                            <button class="tab-btn active" data-tab="tab-code">main.js</button>
+                            <button class="tab-btn" data-tab="tab-stack">Stack</button>
+                            <button class="tab-btn" data-tab="tab-status">Console</button>
+                        </div>
+                    </div>
+
+                    <!-- Card Body Panels -->
+                    <div class="card-body">
+                        
+                        <!-- Tab 1: Code Overview -->
+                        <div class="tab-content active" id="tab-code">
+                            <pre><code><span class="keyword">const</span> <span class="variable">developer</span> = {
+  <span class="property">name</span>: <span class="string">'Muhammad Atif'</span>,
+  <span class="property">role</span>: <span class="string">'Full Stack Specialist'</span>,
+  <span class="property">stack</span>: [<span class="string">'Node.js'</span>, <span class="string">'Express'</span>, <span class="string">'Flutter'</span>],
+  <span class="property">status</span>: <span class="string">'Available for hire'</span>,
+  <span class="function">getSkills</span>() {
+    <span class="keyword">return</span> <span class="string">'Clean Code & Scalable APIs'</span>;
+  }
+};
+
+<span class="comment">// Connection initialized</span>
+<span class="function">console</span>.log(<span class="string">'System operational ⚡'</span>);</code></pre>
+                        </div>
+
+                        <!-- Tab 2: Visual Tech Badges -->
+                        <div class="tab-content" id="tab-stack">
+                            <div class="badge-grid">
+                                <span class="tech-tag">⚡ Node.js</span>
+                                <span class="tech-tag">🚀 Express.js</span>
+                                <span class="tech-tag">📱 Flutter</span>
+                                <span class="tech-tag">🗄️ MySQL</span>
+                                <span class="tech-tag">🎨 Tailwind</span>
+                                <span class="tech-tag">🌐 REST APIs</span>
+                                <span class="tech-tag">🔄 Git / GitHub</span>
+                            </div>
+                        </div>
+
+                        <!-- Tab 3: Live Status -->
+                        <div class="tab-content" id="tab-status">
+                            <div class="status-console">
+                                <div class="status-indicator">
+                                    <span class="pulse-dot"></span>
+                                    <span class="status-text">Server Status: Online (Port 5000)</span>
+                                </div>
+                                <p class="console-line">✔ Database connected: MySQL</p>
+                                <p class="console-line">✔ Route `/api/skills` loaded [200 OK]</p>
+                                <p class="console-line">✔ Route `/api/contact` ready for requests</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Card Footer Badge -->
+                    <div class="card-footer">
+                        <span class="footer-status-tag">ACTIVE ENGINE</span>
+                        <span class="footer-time">ISLAMABAD / 2026</span>
+                    </div>
+
+                </div>
             </div>
+
         </div>
     </section>
 
-    <!-- Dynamic Skills Section -->
+    <!-- Skills Section -->
     <section id="skills" class="skills-section scroll-reveal">
-        <h2>Technical Expertise</h2>
-        <p class="section-subtitle">Dynamically rendered from backend API</p>
+        <div class="section-header">
+            <h2>Technical Stack</h2>
+            <p class="section-subtitle">Dynamically fetched from internal API</p>
+        </div>
         <div id="skills-grid" class="skills-grid">
             <p class="loading-text">Loading skills from API server...</p>
         </div>
     </section>
 
-    <!-- Combined About Me & Interactive Contact Form -->
+    <!-- About & Contact Section -->
     <section class="dark-info-container scroll-reveal" id="about-contact-section">
         
-        <!-- Left Side: About Me -->
         <div class="dark-box-left">
             <h2>About Me</h2>
-            <p>I focus on building clean frontend interfaces, responsive design architectures, and backend database systems. I specialize in turning complex logic into smooth, highly accessible applications that work seamlessly on any device.</p>
-            <p style="margin-top: 1rem;">With deep training in modern software engineering frameworks, my goal is always clean code, structured layouts, and flawless database normalization.</p>
+            <p>I build elegant frontend interfaces and performant backend architectures. My design philosophy balances brutalist minimalism with functional clarity—ensuring every product looks refined and works efficiently.</p>
         </div>
         
-        <!-- Right Side: Interactive API Contact Form -->
         <div class="dark-box-right">
-            <h2>Contact Me</h2>
-            <form id="api-contact-form" style="display: flex; flex-direction: column; gap: 0.8rem; text-align: left; margin-top: 1rem;">
-                <input type="text" id="form-name" placeholder="Your Name" required style="padding: 0.8rem; border-radius: 4px; border: none; font-family: inherit;">
-                <input type="email" id="form-email" placeholder="Your Email Address" required style="padding: 0.8rem; border-radius: 4px; border: none; font-family: inherit;">
-                <textarea id="form-message" rows="3" placeholder="Write your message here..." required style="padding: 0.8rem; border-radius: 4px; border: none; font-family: inherit;"></textarea>
+            <h2>Let's Talk</h2>
+            <form id="api-contact-form">
+                <input type="text" id="form-name" placeholder="Your Name" required>
+                <input type="email" id="form-email" placeholder="Your Email Address" required>
+                <textarea id="form-message" rows="3" placeholder="Project details or message..." required></textarea>
                 
-                <button type="submit" class="contact-email-btn" style="border: none; cursor: pointer; width: 100%;">
-                    Send Live API Message ✉
+                <button type="submit" class="contact-email-btn">
+                    Send Message ↗
                 </button>
-                <p id="form-feedback-message" style="margin-top: 0.5rem; font-weight: 600; text-align: center;"></p>
+                <p id="form-feedback-message"></p>
             </form>
         </div>
 
@@ -82,7 +173,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Muhammad Atif. Integrated Full Stack Portfolio Project.</p>
+        <p>&copy; 2026 Muhammad Atif. Designed with Swiss Minimalist principles.</p>
     </footer>
 
     <script src="app.js"></script>
