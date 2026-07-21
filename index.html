@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Atif - Software Engineer Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts for modern look -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -21,31 +20,41 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Developer Image -->
     <section id="hero" class="hero-section">
-        <div class="hero-content">
-            <h1>Hi, I'm <span class="highlight">Muhammad Atif</span></h1>
-            <h2>Software Engineer & Full Stack Developer</h2>
-            <p>Building clean frontend interfaces, robust backend APIs, and scalable mobile & database solutions.</p>
-            <div class="hero-buttons">
-                <a href="#about-contact-section" class="btn btn-primary">Get in Touch</a>
-                <a href="#skills" class="btn btn-secondary">Explore Skills</a>
+        <div class="hero-container">
+            <div class="hero-content scroll-reveal">
+                <h1>Hi, I'm <span class="highlight">Muhammad Atif</span></h1>
+                <h2>Software Engineer & Full Stack Developer</h2>
+                <p>Building clean frontend interfaces, robust backend APIs, and scalable mobile & database solutions.</p>
+                <div class="hero-buttons">
+                    <a href="#about-contact-section" class="btn btn-primary">Get in Touch</a>
+                    <a href="#skills" class="btn btn-secondary">Explore Skills</a>
+                </div>
+            </div>
+            
+            <div class="hero-image-container scroll-reveal">
+                <!-- Developer & Code High-Quality Image -->
+                <img 
+                    src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" 
+                    alt="Software Engineer Coding Setup" 
+                    class="profile-img"
+                >
             </div>
         </div>
     </section>
 
     <!-- Dynamic Skills Section -->
-    <section id="skills" class="skills-section">
+    <section id="skills" class="skills-section scroll-reveal">
         <h2>Technical Expertise</h2>
         <p class="section-subtitle">Dynamically rendered from backend API</p>
         <div id="skills-grid" class="skills-grid">
-            <!-- Dynamically populated by JS via GET /api/skills -->
             <p class="loading-text">Loading skills from API server...</p>
         </div>
     </section>
 
-    <!-- Combined About Me & Interactive Contact Form Section -->
-    <section class="dark-info-container" id="about-contact-section">
+    <!-- Combined About Me & Interactive Contact Form -->
+    <section class="dark-info-container scroll-reveal" id="about-contact-section">
         
         <!-- Left Side: About Me -->
         <div class="dark-box-left">
@@ -73,7 +82,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Muhammad Atif. Integrated Full Stack Project.</p>
+        <p>&copy; 2026 Muhammad Atif. Integrated Full Stack Portfolio Project.</p>
     </footer>
 
     <script src="app.js"></script>
