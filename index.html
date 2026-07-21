@@ -3,104 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Atif | Full Stack Developer Portfolio</title>
+    <title>Muhammad Atif - Software Engineer Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Google Fonts for modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="app-header" id="home">
-        <div class="logo-area">
-            <span class="logo-icon">❖</span>
-            <strong>Atif.dev</strong>
-        </div>
-        <button class="menu-toggle" aria-label="Toggle Navigation Menu">☰</button>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="logo">Muhammad Atif</div>
+        <button class="menu-toggle" aria-label="Toggle Navigation">☰</button>
         <nav class="nav-container">
-            <a href="#home" class="nav-link active">Home</a>
-            <a href="#about-contact-section" class="nav-link">About & Contact</a>
+            <a href="#hero" class="nav-link active">Home</a>
             <a href="#skills" class="nav-link">Skills</a>
+            <a href="#about-contact-section" class="nav-link">About & Contact</a>
         </nav>
     </header>
 
-    <div class="layout-grid">
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h1>Hi, I'm <span class="highlight">Muhammad Atif</span></h1>
+            <h2>Software Engineer & Full Stack Developer</h2>
+            <p>Building clean frontend interfaces, robust backend APIs, and scalable mobile & database solutions.</p>
+            <div class="hero-buttons">
+                <a href="#about-contact-section" class="btn btn-primary">Get in Touch</a>
+                <a href="#skills" class="btn btn-secondary">Explore Skills</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Skills Section -->
+    <section id="skills" class="skills-section">
+        <h2>Technical Expertise</h2>
+        <p class="section-subtitle">Dynamically rendered from backend API</p>
+        <div id="skills-grid" class="skills-grid">
+            <!-- Dynamically populated by JS via GET /api/skills -->
+            <p class="loading-text">Loading skills from API server...</p>
+        </div>
+    </section>
+
+    <!-- Combined About Me & Interactive Contact Form Section -->
+    <section class="dark-info-container" id="about-contact-section">
         
-        <aside class="side-panel">
-            <div class="panel-section">
-                <h3>Status</h3>
-                <div class="badge-status">
-                    <span class="badge">Available for Work</span>
-                </div>
-            </div>
-            <div class="panel-section">
-                <h3>Quick Info</h3>
-                <p><strong>Location:</strong> Pakistan</p>
-                <p><strong>Specialty:</strong> Cross-Platform Apps</p>
-            </div>
-        </aside>
-
-        <main class="main-content">
-            
-            <section class="hero-section">
-                <h1>Building Digital Fluid Environments That Adapt.</h1>
-                <p>I am Muhammad Atif, a passionate developer engineering high-performance mobile, desktop, and database systems. Welcome to my professional workspace.</p>
-                <a href="#about-contact-section" style="text-decoration: none;">
-                    <button class="btn-primary">About & Contact Me</button>
-                </a>
-            </section>
-
-            <section class="skills-container" id="skills">
-                <h2>Technical Expertise</h2>
+        <!-- Left Side: About Me -->
+        <div class="dark-box-left">
+            <h2>About Me</h2>
+            <p>I focus on building clean frontend interfaces, responsive design architectures, and backend database systems. I specialize in turning complex logic into smooth, highly accessible applications that work seamlessly on any device.</p>
+            <p style="margin-top: 1rem;">With deep training in modern software engineering frameworks, my goal is always clean code, structured layouts, and flawless database normalization.</p>
+        </div>
+        
+        <!-- Right Side: Interactive API Contact Form -->
+        <div class="dark-box-right">
+            <h2>Contact Me</h2>
+            <form id="api-contact-form" style="display: flex; flex-direction: column; gap: 0.8rem; text-align: left; margin-top: 1rem;">
+                <input type="text" id="form-name" placeholder="Your Name" required style="padding: 0.8rem; border-radius: 4px; border: none; font-family: inherit;">
+                <input type="email" id="form-email" placeholder="Your Email Address" required style="padding: 0.8rem; border-radius: 4px; border: none; font-family: inherit;">
+                <textarea id="form-message" rows="3" placeholder="Write your message here..." required style="padding: 0.8rem; border-radius: 4px; border: none; font-family: inherit;"></textarea>
                 
-                <div class="content-grid">
-                    <article class="card">
-                        <div class="card-icon">📱</div>
-                        <h3>Mobile Development</h3>
-                        <p>Designing modern, responsive, and natively compiled applications for iOS & Android using <strong>Flutter</strong> and Dart.</p>
-                    </article>
-                    
-                    <article class="card">
-                        <div class="card-icon">💻</div>
-                        <h3>Software & Systems</h3>
-                        <p>Constructing scalable backend services and robust computer architectures using <strong>C#</strong> and <strong>C++</strong>.</p>
-                    </article>
+                <button type="submit" class="contact-email-btn" style="border: none; cursor: pointer; width: 100%;">
+                    Send Live API Message ✉
+                </button>
+                <p id="form-feedback-message" style="margin-top: 0.5rem; font-weight: 600; text-align: center;"></p>
+            </form>
+        </div>
 
-                    <article class="card">
-                        <div class="card-icon">🗄️</div>
-                        <h3>Database Management</h3>
-                        <p>Structuring relational engines with relational <strong>SQL</strong> databases as well as flexible document stores like <strong>MongoDB</strong>.</p>
-                    </article>
-                </div>
-            </section>
+    </section>
 
-            <section class="dark-info-container" id="about-contact-section">
-                
-                <div class="dark-box-left">
-                    <h2>About Me</h2>
-                    <p>I focus on building clean frontend interfaces, responsive design architectures, and backend database systems. I specialize in turning complex logic into smooth, highly accessible applications that work seamlessly on any device.</p>
-                    <p style="margin-top: 1rem;">With deep training in modern software engineering frameworks, my goal is always clean code, structured layouts, and flawless database normalization.</p>
-                </div>
-                
-                <div class="dark-box-right">
-                    <h2>Contact Me</h2>
-                    <p>Have an application in mind or looking for a talented developer to join your team? Let's build something great together!</p>
-                    
-                    <div class="contact-details">
-                        <p><strong>Email:</strong></p>
-                        <a href="mailto:Muhammadatif4586@gmail.com" class="contact-email-btn">
-                            ✉ Muhammadatif4586@gmail.com
-                        </a>
-                    </div>
-                </div>
-
-            </section>
-
-        </main>
-    </div>
-
-    <footer class="app-footer">
-        <p>&copy; 2026 Muhammad Atif. Crafted for DecodeLabs Project 1 Verification Milestone.</p>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Muhammad Atif. Integrated Full Stack Project.</p>
     </footer>
 
     <script src="app.js"></script>
