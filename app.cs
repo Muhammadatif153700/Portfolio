@@ -8,7 +8,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const API_BASE_URL = 'http://localhost:5000/api';
 
-    // 1. Mobile Menu Toggle
+    // 1. Interactive Terminal Tabs Switching
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabButtons.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+
+            btn.classList.add('active');
+            const targetTab = document.getElementById(btn.getAttribute('data-tab'));
+            if (targetTab) {
+                targetTab.classList.add('active');
+            }
+        });
+    });
+
+    // 2. Mobile Menu Toggle
     if (menuToggle && navContainer) {
         menuToggle.addEventListener('click', () => {
             navContainer.classList.toggle('active');
@@ -17,24 +34,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Nav Active Link Switch
+    // 3. Active Nav Link Handler
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             navLinks.forEach(nav => nav.classList.remove('active'));
             link.classList.add('active');
-            if (window.innerWidth <= 768 && navContainer) {
+            if (window.innerWidth <= 960 && navContainer) {
                 navContainer.classList.remove('active');
                 if (menuToggle) menuToggle.textContent = '☰';
             }
         });
     });
 
-    // ==========================================
-    // 3. INTERSECTION OBSERVER FOR SCROLL REVEAL
-    // ==========================================
+    // 4. Scroll Reveal Observer
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
+        rootMargin: "0px 0px -40px 0px"
     };
 
     const revealOnScroll = new IntersectionObserver((entries, observer) => {
@@ -46,14 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Register static elements
     document.querySelectorAll('.scroll-reveal').forEach(el => {
         revealOnScroll.observe(el);
     });
 
-    // ==========================================
-    // 4. FETCH SKILLS WITH STAGGERED ANIMATIONS
-    // ==========================================
+    // 5. Fetch Skills from API
     async function loadSkillsFromAPI() {
         if (!skillsGrid) return;
 
@@ -64,41 +76,35 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok && result.data) {
                 skillsGrid.innerHTML = '';
 
-                result.data.forEach((skill, index) => {
+                result.data.forEach((skill) => {
                     const skillCard = document.createElement('div');
-                    // Add staggered animation delay classes
-                    const delayClass = `delay-${(index % 3) + 1}`;
-                    skillCard.className = `skill-card scroll-reveal ${delayClass}`;
+                    skillCard.className = 'skill-card scroll-reveal';
                     
                     skillCard.innerHTML = `
-                        <div class="skill-icon" style="font-size: 2.2rem; margin-bottom: 0.8rem;">${skill.icon}</div>
-                        <h3 style="margin-bottom: 0.6rem; color: #f8fafc;">${skill.category}</h3>
-                        <p style="color: #94a3b8; font-size: 0.95rem;">${skill.details}</p>
+                        <div class="skill-icon">${skill.icon}</div>
+                        <h3>${skill.category}</h3>
+                        <p>${skill.details}</p>
                     `;
                     skillsGrid.appendChild(skillCard);
-                    
-                    // Attach reveal observer to new card
                     revealOnScroll.observe(skillCard);
                 });
             } else {
-                skillsGrid.innerHTML = '<p class="error-text">Failed to load skills from API server.</p>';
+                skillsGrid.innerHTML = '<p style="color: #d90429;">Failed to load skills from API.</p>';
             }
         } catch (error) {
-            skillsGrid.innerHTML = '<p class="error-text">Unable to connect to backend server. Ensure Node.js is running on port 5000.</p>';
+            skillsGrid.innerHTML = '<p style="color: #8b5a2b; font-weight: 500;">Backend server disconnected. Ensure Node.js is running on port 5000.</p>';
         }
     }
 
     loadSkillsFromAPI();
 
-    // ==========================================
-    // 5. CONTACT FORM SUBMISSION
-    // ==========================================
+    // 6. Contact Form Submission
     if (contactForm) {
         contactForm.addEventListener('submit', async (event) => {
             event.preventDefault();
             
-            feedbackMessage.textContent = "Sending message to server...";
-            feedbackMessage.style.color = "#38bdf8";
+            feedbackMessage.textContent = "Sending message...";
+            feedbackMessage.style.color = "#8b5a2b";
 
             const name = document.getElementById('form-name').value;
             const email = document.getElementById('form-email').value;
@@ -107,25 +113,23 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const response = await fetch(`${API_BASE_URL}/contact`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ name, email, message })
                 });
 
                 const result = await response.json();
 
                 if (response.ok) {
-                    feedbackMessage.textContent = result.message;
-                    feedbackMessage.style.color = "#4ade80"; // Bright Green
+                    feedbackMessage.textContent = "Message sent successfully!";
+                    feedbackMessage.style.color = "#2b9348";
                     contactForm.reset();
                 } else {
                     feedbackMessage.textContent = `Error: ${result.error}`;
-                    feedbackMessage.style.color = "#f87171"; // Bright Red
+                    feedbackMessage.style.color = "#d90429";
                 }
             } catch (error) {
-                feedbackMessage.textContent = "Could not connect to backend. Is your Node.js server running?";
-                feedbackMessage.style.color = "#f87171";
+                feedbackMessage.textContent = "Could not connect to backend server.";
+                feedbackMessage.style.color = "#d90429";
             }
         });
     }
