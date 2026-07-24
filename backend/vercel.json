@@ -6,7 +6,7 @@
       "use": "@vercel/node"
     },
     {
-      "src": "public/**/*",
+      "src": "*",
       "use": "@vercel/static"
     }
   ],
@@ -14,10 +14,6 @@
     {
       "src": "/api/(.*)",
       "dest": "server.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/public/$1"
     }
   ]
 }
