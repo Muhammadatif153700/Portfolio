@@ -8,24 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const API_BASE_URL = 'http://localhost:5000/api';
 
-    // 1. Interactive Terminal Tabs Switching
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-
-    tabButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            tabButtons.forEach(b => b.classList.remove('active'));
-            tabContents.forEach(c => c.classList.remove('active'));
-
-            btn.classList.add('active');
-            const targetTab = document.getElementById(btn.getAttribute('data-tab'));
-            if (targetTab) {
-                targetTab.classList.add('active');
-            }
-        });
-    });
-
-    // 2. Mobile Menu Toggle
+    // 1. Mobile Navigation Menu Toggle
     if (menuToggle && navContainer) {
         menuToggle.addEventListener('click', () => {
             navContainer.classList.toggle('active');
@@ -34,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Active Nav Link Handler
+    // 2. Navigation Link Active State Handler
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             navLinks.forEach(nav => nav.classList.remove('active'));
@@ -46,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Scroll Reveal Observer
+    // 3. Smooth Scroll Reveal Animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: "0px 0px -40px 0px"
@@ -65,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         revealOnScroll.observe(el);
     });
 
-    // 5. Fetch Skills from API
+    // 4. Dynamically Load Skills from API Server
     async function loadSkillsFromAPI() {
         if (!skillsGrid) return;
 
@@ -98,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadSkillsFromAPI();
 
-    // 6. Contact Form Submission
+    // 5. Contact Form Submission Handling
     if (contactForm) {
         contactForm.addEventListener('submit', async (event) => {
             event.preventDefault();
